@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="96" fill="#14171f"/>
+  <rect x="2" y="2" width="508" height="508" rx="94" stroke="#222733" stroke-width="4" fill="none"/>
+
+  <!-- Calendar top bar -->
+  <rect x="72" y="96" width="368" height="52" rx="10" fill="#1a1e28"/>
+
+  <!-- Calendar rings -->
+  <rect x="148" y="80" width="16" height="40" rx="8" fill="#3d4f6a"/>
+  <rect x="256" y="80" width="16" height="40" rx="8" fill="#3d4f6a"/>
+  <rect x="348" y="80" width="16" height="40" rx="8" fill="#3d4f6a"/>
+
+  <!-- Day labels -->
+  <text x="112" y="130" font-family="monospace" font-size="18" font-weight="700" fill="#565d72" text-anchor="middle">M</text>
+  <text x="176" y="130" font-family="monospace" font-size="18" font-weight="700" fill="#565d72" text-anchor="middle">T</text>
+  <text x="240" y="130" font-family="monospace" font-size="18" font-weight="700" fill="#565d72" text-anchor="middle">W</text>
+  <text x="297" y="130" font-family="monospace" font-size="16" font-weight="700" fill="#565d72" text-anchor="middle">TH</text>
+  <text x="356" y="130" font-family="monospace" font-size="18" font-weight="700" fill="#565d72" text-anchor="middle">F</text>
+  <text x="404" y="130" font-family="monospace" font-size="18" font-weight="700" fill="#565d72" text-anchor="middle">S</text>
+
+  <!-- Calendar grid body -->
+  <rect x="72" y="148" width="368" height="236" rx="0 0 10 10" fill="#0c0e14" stroke="#222733" stroke-width="1"/>
+
+  <!-- Grid lines (horizontal) -->
+  <line x1="72" y1="207" x2="440" y2="207" stroke="#1c2030" stroke-width="1"/>
+  <line x1="72" y1="266" x2="440" y2="266" stroke="#1c2030" stroke-width="1"/>
+  <line x1="72" y1="325" x2="440" y2="325" stroke="#1c2030" stroke-width="1"/>
+
+  <!-- Grid lines (vertical) -->
+  <line x1="133" y1="148" x2="133" y2="384" stroke="#1c2030" stroke-width="1"/>
+  <line x1="194" y1="148" x2="194" y2="384" stroke="#1c2030" stroke-width="1"/>
+  <line x1="255" y1="148" x2="255" y2="384" stroke="#1c2030" stroke-width="1"/>
+  <line x1="316" y1="148" x2="316" y2="384" stroke="#1c2030" stroke-width="1"/>
+  <line x1="377" y1="148" x2="377" y2="384" stroke="#1c2030" stroke-width="1"/>
+
+  <!-- Sample event blocks -->
+  <rect x="138" y="156" width="52" height="44" rx="5" fill="#3d4f6a" opacity="0.9"/>
+  <rect x="138" y="272" width="52" height="32" rx="5" fill="#56657a" opacity="0.9"/>
+  <rect x="199" y="210" width="52" height="50" rx="5" fill="#4a5568" opacity="0.9"/>
+  <rect x="260" y="156" width="52" height="44" rx="5" fill="#2d3e50" opacity="0.9"/>
+  <rect x="321" y="272" width="52" height="56" rx="5" fill="#374151" opacity="0.9"/>
+  <rect x="77" y="214" width="52" height="38" rx="5" fill="#2d3e50" opacity="0.9"/>
+
+  <!-- Now-line -->
+  <line x1="72" y1="300" x2="440" y2="300" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <circle cx="72" cy="300" r="4" fill="#fff"/>
+
+  <!-- MMA4A text -->
+  <text x="256" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" fill="#e8ecf4" text-anchor="middle" letter-spacing="-2">MMA4A</text>
+</svg>
