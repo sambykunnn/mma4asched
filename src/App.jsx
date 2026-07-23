@@ -129,102 +129,106 @@ export default function App() {
         </div>
       </div>
 
-      {/* Calendar */}
-      <div className="cal">
-        {/* Day headers */}
-        <div className="cal-head">
-          <div className="cal-head-cell">TIME</div>
-          {DAYS.map(d => (
-            <div
-              key={d}
-              className={`cal-head-cell${d === todayKey ? ' today' : ''}`}
-            >
-              {DAY_LABEL[d]}
-            </div>
-          ))}
-        </div>
-
-        {/* Grid body */}
-        <div className="cal-body">
-          <div className="grid-rows" ref={bodyRef}>
-            {Array.from({ length: HOURS }).map((_, i) => (
-              <React.Fragment key={i}>
-                <div className="grid-time">{fmtHour(GRID_START + i * 60)}</div>
-                {DAYS.map(d => <div className="grid-cell" key={d} />)}
-              </React.Fragment>
+      {/* Main two-panel layout */}
+      <div className="main-layout">
+        {/* Calendar */}
+        <div className="cal">
+          {/* Day headers */}
+          <div className="cal-head">
+            <div className="cal-head-cell">TIME</div>
+            {DAYS.map(d => (
+              <div
+                key={d}
+                className={`cal-head-cell${d === todayKey ? ' today' : ''}`}
+              >
+                {DAY_LABEL[d]}
+              </div>
             ))}
           </div>
 
-          {/* Current-time red line */}
-          {dims.h > 0 && showNow && (
-            <div className="now-line" style={{ top: nowTop }} />
-          )}
-
-          {/* Events */}
-          {dims.h > 0 && (
-            <div className="ev-layer">
-              {events.map((ev, i) => {
-                const col = DAYS.indexOf(ev.dayKey);
-                if (col < 0) return null;
-
-                const top = (ev.s - GRID_START) * pxPerMin;
-                const h   = (ev.e - ev.s) * pxPerMin;
-                const tall = h > 55;
-                const active = isActive(ev);
-
-                return (
-                  <div
-                    className={`ev${active ? ' active' : ''}`}
-                    key={i}
-                    style={{
-                      top, height: h,
-                      left: col * colW + 2,
-                      width: colW - 4,
-                      backgroundColor: ev.color,
-                    }}
-                    title={`${ev.id}\n${ev.title}\n${ev.label}\nInstructor: ${ev.instructor}${ev.room ? `\nRoom: ${ev.room}` : ''}`}
-                  >
-                    <div>
-                      <div className="ev-code">{ev.id}</div>
-                      {tall && <div className="ev-name">{ev.title}</div>}
-                    </div>
-                    <div className="ev-bottom">
-                      <span className="ev-time">{ev.label}</span>
-                      {tall && <span className="ev-instructor">{ev.instructor}</span>}
-                    </div>
-                  </div>
-                );
-              })}
+          {/* Grid body */}
+          <div className="cal-body">
+            <div className="grid-rows" ref={bodyRef}>
+              {Array.from({ length: HOURS }).map((_, i) => (
+                <React.Fragment key={i}>
+                  <div className="grid-time">{fmtHour(GRID_START + i * 60)}</div>
+                  {DAYS.map(d => <div className="grid-cell" key={d} />)}
+                </React.Fragment>
+              ))}
             </div>
-          )}
+
+            {/* Current-time line */}
+            {dims.h > 0 && showNow && (
+              <div className="now-line" style={{ top: nowTop }} />
+            )}
+
+            {/* Events */}
+            {dims.h > 0 && (
+              <div className="ev-layer">
+                {events.map((ev, i) => {
+                  const col = DAYS.indexOf(ev.dayKey);
+                  if (col < 0) return null;
+
+                  const top = (ev.s - GRID_START) * pxPerMin;
+                  const h   = (ev.e - ev.s) * pxPerMin;
+                  const tall = h > 55;
+                  const active = isActive(ev);
+
+                  return (
+                    <div
+                      className={`ev${active ? ' active' : ''}`}
+                      key={i}
+                      style={{
+                        top, height: h,
+                        left: col * colW + 2,
+                        width: colW - 4,
+                        backgroundColor: ev.color,
+                        animationDelay: `${i * 0.04}s`,
+                      }}
+                      title={`${ev.id}\n${ev.title}\n${ev.label}\nInstructor: ${ev.instructor}${ev.room ? `\nRoom: ${ev.room}` : ''}`}
+                    >
+                      <div>
+                        <div className="ev-code">{ev.id}</div>
+                        {tall && <div className="ev-name">{ev.title}</div>}
+                      </div>
+                      <div className="ev-bottom">
+                        <span className="ev-time">{ev.label}</span>
+                        {tall && <span className="ev-instructor">{ev.instructor}</span>}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Course Cards */}
-      <div className="courses-section">
-        <div className="courses-label">Enrolled Courses</div>
-        <div className="cards">
-          {courses.map(c => (
-            <div className="card" key={c.code}>
-              <div className="card-accent" style={{ background: c.color }} />
-              <div className="card-code">{c.code}</div>
-              <div className="card-title">{c.title}</div>
-              <div className="card-meta">
-                <span className="tag">{c.units} units</span>
-                <span className="tag">{c.section}</span>
-                <span className="tag">{c.instructor}</span>
-                {c.room && <span className="tag">{c.room}</span>}
+        {/* Sidebar: Course Cards */}
+        <div className="courses-section">
+          <div className="courses-label">Enrolled Courses</div>
+          <div className="cards">
+            {courses.map(c => (
+              <div className="card" key={c.code}>
+                <div className="card-accent" style={{ background: c.color }} />
+                <div className="card-code">{c.code}</div>
+                <div className="card-title">{c.title}</div>
+                <div className="card-meta">
+                  <span className="tag">{c.units} units</span>
+                  <span className="tag">{c.section}</span>
+                  <span className="tag">{c.instructor}</span>
+                  {c.room && <span className="tag">{c.room}</span>}
+                </div>
+                <div className="card-slots">
+                  {c.slots.map((sl, j) => (
+                    <div className="slot-line" key={j}>
+                      <span className="slot-day">{sl.day}</span>
+                      <span>{sl.start}–{sl.end}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="card-slots">
-                {c.slots.map((sl, j) => (
-                  <div className="slot-line" key={j}>
-                    <span className="slot-day">{sl.day}</span>
-                    <span>{sl.start}–{sl.end}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

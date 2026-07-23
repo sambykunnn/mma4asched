@@ -15,7 +15,7 @@ export const courses = [
     units: 3.0,
     instructor: "TBA",        // ← placeholder, replace when assigned
     room: "",
-    color: "#3d4f6a",
+    color: "#2d4a8a",
     slots: [
       { day: "T",  start: "01:00PM", end: "03:00PM" },
       { day: "TH", start: "01:00PM", end: "04:00PM" },
@@ -28,7 +28,7 @@ export const courses = [
     units: 3.0,
     instructor: "TBA",
     room: "",
-    color: "#4a5568",
+    color: "#1a6b5a",
     slots: [
       { day: "F", start: "07:00AM", end: "10:00AM" },
       { day: "F", start: "11:00AM", end: "03:00PM" },
@@ -41,7 +41,7 @@ export const courses = [
     units: 3.0,
     instructor: "TBA",
     room: "",
-    color: "#56657a",
+    color: "#5b3a8a",
     slots: [
       { day: "TH", start: "09:00AM", end: "11:00AM" },
       { day: "T",  start: "09:00AM", end: "12:00PM" },
@@ -54,7 +54,7 @@ export const courses = [
     units: 3.0,
     instructor: "TBA",
     room: "",
-    color: "#2d3e50",
+    color: "#7a4a2a",
     slots: [
       { day: "M", start: "01:30PM", end: "04:30PM" },
       { day: "W", start: "01:30PM", end: "05:30PM" },
@@ -67,7 +67,7 @@ export const courses = [
     units: 3.0,
     instructor: "TBA",
     room: "",
-    color: "#374151",
+    color: "#8a2d4a",
     slots: [
       { day: "F", start: "05:30PM", end: "07:00PM" },
       { day: "S", start: "05:30PM", end: "07:00PM" },
